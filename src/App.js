@@ -33,9 +33,7 @@ function App() {
                 .then(r => {
                     if (r.ok) {
                         return r.json();
-                    }
-
-                    else
+                    } else
                         return new Error("Request failed")
                 })
                 .catch(e => console.log(e))]);
