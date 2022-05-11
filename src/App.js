@@ -29,10 +29,12 @@ function App() {
                     else
                         throw new Error("Location not found");
                 })
-                .then(l => fetch(`${process.env.REACT_APP_CURRENT_WEATHER_URL}?lat=${l.lat}&lon=${l.lon}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`))
+                .then(l => fetch(`${process.env.REACT_APP_CURRENT_WEATHER_URL}?lat=${l.lat}&lon=${l.lon}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`))
                 .then(r => {
-                    if (r.ok)
+                    if (r.ok) {
                         return r.json();
+                    }
+
                     else
                         return new Error("Request failed")
                 })
@@ -45,7 +47,7 @@ function App() {
         <div>
             <h1>React Weather App</h1>
             <CitySearch updateCity={updateCity} fetchLocation={fetchLocation}/>
-            <WeatherDisplay city={city} weatherData={weatherData}/>
+            <WeatherDisplay weatherData={weatherData}/>
         </div>
 
     );
