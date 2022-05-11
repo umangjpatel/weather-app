@@ -1,7 +1,11 @@
 function WeatherDisplay(props) {
-    const {city, locationData} = props;
-    if (locationData !== null && locationData !== undefined && city === locationData.name) {
-        console.log(locationData);
+
+    // Display weather information
+
+    const {city, weatherData} = props;
+    if (weatherData !== null && weatherData !== undefined && city === weatherData.name) {
+        console.log(weatherData);
+        //
         return (<p>Just checking !!!</p>);
     } else {
         return null;
